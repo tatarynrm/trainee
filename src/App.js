@@ -46,7 +46,7 @@ function App() {
           nextPage={nextPage}
           prevPage={prevPage}
         />
-        {block.length % 9 === 0 ? (
+        {block.length % 9 === 0 && block.length > 1 ? (
           <AddMore
             block={block}
             currentPage={currentPage}
