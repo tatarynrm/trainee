@@ -3,7 +3,7 @@ export const validationSchema = Yup.object().shape({
   title: Yup.string()
     .min(3, "Мінімум 3 символи")
     .max(20, "Максимум 20 символів")
-    .matches(/^[А-яГєЄіІїЇ]+$/, "Тільки кириличні символи")
+    .matches(/^[А-яГєЄіІїЇ]/, "Тільки кириличні символи")
     .required("Обов'язкове поле"),
   link: Yup.string()
     .matches(
@@ -12,6 +12,7 @@ export const validationSchema = Yup.object().shape({
     )
     .required("Обов'язкове поле"),
   text: Yup.string()
+    .max(200, "Максимум 200 символів")
     .matches(/^[Аа-яГєЄіІїЇ]/, "Тільки кириличні символи")
     .required("Обов'язкове поле"),
 });
