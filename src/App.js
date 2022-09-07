@@ -11,7 +11,7 @@ function App() {
   const block = useSelector((state) => state.block.block);
   const deleteBlocks = useSelector((state) => state.block.deletedBlocks);
   const [currentPage, setCurrentPage] = useState(1);
-  const [blocksPerPage] = useState(9);
+  const [blocksPerPage, setBlocksPerPage] = useState(9);
   const dispatch = useDispatch();
   useEffect(() => {}, [block]);
   const lastBlockIndex = currentPage * blocksPerPage;
@@ -33,7 +33,7 @@ function App() {
       <div className="container">
         <FormCreate />
         <div className="blocks">
-          {currentBlock.map((item) => (
+          {currentBlock.slice(0, blocksPerPage).map((item) => (
             <BlockItem key={item.id} item={item} deleteBlock={deleteBlock} />
           ))}
         </div>
@@ -48,13 +48,14 @@ function App() {
         />
 
         {/* На стадії розробки))) */}
-        {/* {block.length % 9 === 0 ? (
+        {block.length % 9 === 0 ? (
           <AddMore
             block={block}
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}
+            setBlocksPerPage={setBlocksPerPage}
           />
-        ) : null} */}
+        ) : null}
 
         {deleteBlocks.length < 1 ? null : (
           <DeletedBlocks
