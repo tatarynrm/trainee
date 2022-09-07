@@ -46,8 +46,6 @@ function App() {
           nextPage={nextPage}
           prevPage={prevPage}
         />
-
-        {/* На стадії розробки))) */}
         {block.length % 9 === 0 ? (
           <AddMore
             block={block}
