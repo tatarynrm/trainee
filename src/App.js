@@ -54,6 +54,7 @@ function App() {
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}
             setBlocksPerPage={setBlocksPerPage}
+            blocksPerPage={blocksPerPage}
           />
         ) : null}
 
