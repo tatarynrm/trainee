@@ -13,8 +13,6 @@ const Pagination = ({
   for (let i = 1; i <= Math.ceil(pageNumberCount); i++) {
     pageNumbers.push(i);
   }
-  console.log("pageNumbers", pageNumbers);
-  console.log("currentPage", currentPage);
 
   return (
     <div>

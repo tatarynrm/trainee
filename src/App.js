@@ -16,7 +16,8 @@ function App() {
   useEffect(() => {}, [block]);
   const lastBlockIndex = currentPage * blocksPerPage;
   const firstBlockIndex = lastBlockIndex - blocksPerPage;
-  const currentBlock = block.slice(firstBlockIndex, lastBlockIndex);
+  const reversedBlock = [...block].reverse();
+  const currentBlock = reversedBlock.slice(firstBlockIndex, lastBlockIndex);
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   const prevPage = () => {
     setCurrentPage((prev) => prev - 1);

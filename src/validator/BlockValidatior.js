@@ -13,6 +13,6 @@ export const validationSchema = Yup.object().shape({
     .required("Обов'язкове поле"),
   text: Yup.string()
     .max(200, "Максимум 200 символів")
-    .matches(/^[Аа-яГєЄіІїЇ]/, "Тільки кириличні символи")
+    .matches(/^[А-яГєЄіІїЇ]/, "Тільки кириличні символи")
     .required("Обов'язкове поле"),
 });
