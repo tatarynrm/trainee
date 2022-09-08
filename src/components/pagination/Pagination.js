@@ -3,7 +3,6 @@ const Pagination = ({
   blocksPerPage,
   totalBlocks,
   currentPage,
-  setCurrentPage,
   paginate,
   nextPage,
   prevPage,
@@ -38,7 +37,7 @@ const Pagination = ({
                 key={number}
               >
                 <a
-                  href="/"
+                  href="#"
                   className="page-link"
                   onClick={() => paginate(number)}
                 >
