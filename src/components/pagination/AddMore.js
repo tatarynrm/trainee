@@ -8,7 +8,7 @@ const AddMore = ({ setBlocksPerPage }) => {
   return (
     <>
       <button className="btn btn-primary" onClick={addMore}>
-        Добавити більше
+        Завантажити більше
       </button>
     </>
   );
