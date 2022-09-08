@@ -25,8 +25,12 @@ const FormCreate = () => {
       <Formik
         initialValues={{ title: "", link: "", text: "", photo: "" }}
         validationSchema={validationSchema}
-        onSubmit={(values, { setSubmitting }) => {
+        onSubmit={(values, { setSubmitting, resetForm }) => {
           dispatch(addBlock(values));
+          resetForm();
+          setImage(
+            "https://www.lifewire.com/thmb/blKERZhp27lzE_9SjqlnovU0v-s=/1768x1326/smart/filters:no_upscale()/cloud-upload-a30f385a928e44e199a62210d578375a.jpg"
+          );
         }}
       >
         {({

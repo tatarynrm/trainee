@@ -11,7 +11,7 @@ const AddMore = ({
     setBlocksPerPage((prev) => prev + 9);
   };
   const hideBlocks = () => {
-    setBlocksPerPage(9);
+    setBlocksPerPage((prev) => prev - 9);
   };
   console.log(blocksPerPage);
   return (
