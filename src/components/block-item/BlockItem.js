@@ -2,11 +2,13 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 const BlockItem = ({ item, deleteBlock }) => {
+  console.log(item);
   return (
     <>
       <a
         className="block-card"
         key={item.id}
+        rel="noreferrer"
         href={item.link.includes("http") ? item.link : `http://${item.link}`}
         target="_blank"
       >
