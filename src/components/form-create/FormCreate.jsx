@@ -19,7 +19,7 @@ const FormCreate = () => {
     };
     reader.readAsDataURL(e.target.files[0]);
   };
-  useEffect(() => {}, []);
+
   return (
     <div className="form-create">
       <Formik
@@ -27,10 +27,10 @@ const FormCreate = () => {
         validationSchema={validationSchema}
         onSubmit={(values, { setSubmitting, resetForm }) => {
           dispatch(addBlock(values));
-          resetForm();
           setImage(
             "https://www.lifewire.com/thmb/blKERZhp27lzE_9SjqlnovU0v-s=/1768x1326/smart/filters:no_upscale()/cloud-upload-a30f385a928e44e199a62210d578375a.jpg"
           );
+          resetForm();
         }}
       >
         {({

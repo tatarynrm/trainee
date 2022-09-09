@@ -7,8 +7,8 @@ const BlockItem = ({ item, deleteBlock }) => {
       <a
         className="block-card"
         key={item.id}
-        href={`http://${item.link}`}
-        target="blank"
+        href={item.link.includes("http") ? item.link : `http://${item.link}`}
+        target="_blank"
       >
         <Card style={{ width: "20rem" }} bg={"primary"}>
           <Card.Img variant="top" src={item.photo} />
