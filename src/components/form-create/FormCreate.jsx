@@ -4,8 +4,10 @@ import { useDispatch } from "react-redux";
 import { addBlock } from "../../redux/block/blockSlice";
 import { validationSchema } from "../../validator/BlockValidatior";
 import Form from "react-bootstrap/Form";
+import { useRef } from "react";
 
 const FormCreate = () => {
+  const fileRef = useRef();
   const dispatch = useDispatch();
   const [image, setImage] = useState(
     "https://www.lifewire.com/thmb/blKERZhp27lzE_9SjqlnovU0v-s=/1768x1326/smart/filters:no_upscale()/cloud-upload-a30f385a928e44e199a62210d578375a.jpg"
@@ -19,7 +21,9 @@ const FormCreate = () => {
     };
     reader.readAsDataURL(e.target.files[0]);
   };
-
+  const resetInpFile = () => {
+    fileRef.current.value = null;
+  };
   return (
     <div className="form-create">
       <Formik
@@ -30,6 +34,7 @@ const FormCreate = () => {
           setImage(
             "https://www.lifewire.com/thmb/blKERZhp27lzE_9SjqlnovU0v-s=/1768x1326/smart/filters:no_upscale()/cloud-upload-a30f385a928e44e199a62210d578375a.jpg"
           );
+          resetForm();
           resetForm();
         }}
       >
@@ -46,11 +51,13 @@ const FormCreate = () => {
           <form className="form" onSubmit={handleSubmit}>
             <img src={image} alt="uploadimage" />
             <Form.Control
+              ref={fileRef}
               type="file"
               accept="image/*"
               name="photo"
               onChange={(e) => imgHandler(e)}
               onBlur={handleBlur}
+              value={values.image}
             ></Form.Control>
 
             <label htmlFor="title">Заголовок</label>
@@ -90,7 +97,10 @@ const FormCreate = () => {
             <button
               className="btn btn-primary"
               type="submit"
-              onClick={() => setFieldValue("photo", image)}
+              onClick={() => {
+                setFieldValue("photo", image);
+                resetInpFile();
+              }}
             >
               Створити блок
             </button>
